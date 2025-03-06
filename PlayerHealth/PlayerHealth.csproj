@@ -7,7 +7,7 @@
     <ProjectGuid>{167BFC64-F4E3-41F1-9E68-43A94AC71615}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SailorHealth</RootNamespace>
+    <RootNamespace>PlayerHealth</RootNamespace>
     <AssemblyName>SailorHealth</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,8 +64,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic\GPLoadLastSave.cs" />
+    <Compile Include="Logic\GPQuitNoSaveButton.cs" />
+    <Compile Include="Logic\ContinueUI.cs" />
+    <Compile Include="Logic\Health.cs" />
+    <Compile Include="Patches\HealthPatches.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Helper.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
