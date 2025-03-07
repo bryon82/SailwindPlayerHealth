@@ -9,10 +9,6 @@ namespace PlayerHealth
         public override void OnActivate()
         {
             Application.Quit();
-        }
-
-        public GPQuitNoSaveButton()
-        {
-        }        
+        }      
     }
 }
