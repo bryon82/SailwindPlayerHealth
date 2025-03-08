@@ -76,6 +76,8 @@
   <ItemGroup>
     <Compile Include="Logic\GPLoadLastSave.cs" />
     <Compile Include="Logic\GPQuitNoSaveButton.cs" />
+    <Compile Include="Logic\PlayerHealthWarningEffects.cs" />
+    <Compile Include="Patches\SaveLoadPatches.cs" />
     <Compile Include="UI\ContinueUI.cs" />
     <Compile Include="Logic\PlayerHealth.cs" />
     <Compile Include="UI\PlayerHealthUI.cs" />

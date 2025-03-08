@@ -8,7 +8,7 @@ namespace PlayerHealth
 
         public override void OnActivate()
         {
-            continueUI.gameObject.SetActive(false);
+            continueUI.gameObject.SetActive(false);            
             GameObject.Find("start menu UI").GetComponent<StartMenu>().InvokePrivateMethod("LoadGame", 0);
         }
     }

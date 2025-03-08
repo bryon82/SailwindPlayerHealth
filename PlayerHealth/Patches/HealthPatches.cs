@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using UnityEngine.PostProcessing;
 
 namespace PlayerHealth
 {
@@ -34,6 +35,18 @@ namespace PlayerHealth
             }
         }
 
+        [HarmonyPatch(typeof(PlayerNeedsWarningEffects))]
+        private class PlayerNeedsWarningEffectsPatches
+        {
+            [HarmonyPrefix]
+            [HarmonyPatch("Awake")]
+            private static void AddPlayerHealthWarningEffects(PlayerNeedsWarningEffects __instance)
+            {
+                __instance.gameObject.AddComponent<PlayerHealthWarningEffects>();
+                PlayerHealthWarningEffects.instance.postProcessing = __instance.GetPrivateField<PostProcessingProfile>("postProcessing");
+            }
+        }
+
         [HarmonyPatch(typeof(ShipItemFood))]
         private class ShipItemFoodPatches
         {
@@ -42,7 +55,10 @@ namespace PlayerHealth
             private static void EatSpoiledFood(FoodState ___foodState)
             {
                 if (___foodState.spoiled > 0.9f)
+                {
                     PlayerHealth.isSick = true;
+                    PlayerHealthWarningEffects.instance.PlaySickWarning();
+                }
             }
         }
     }

@@ -39,5 +39,22 @@ namespace PlayerHealth
             Destroy(smButton.GetComponent<StartMenuButton>());
             smButton.AddComponent<GPLoadLastSave>().continueUI = continueUI;
         }
+
+        internal void MoveMenuToPlayer()
+        {
+            if (Settings.VRLookEnabled)
+            {
+                base.transform.position = Refs.observerMirror.transform.position;
+                base.transform.rotation = Refs.observerMirror.transform.rotation;
+                base.transform.Translate(Vector3.forward * 1.3f, Space.Self);
+            }
+            else
+            {
+                base.transform.position = Camera.main.transform.position;
+                base.transform.rotation = Camera.main.transform.rotation;
+                base.transform.Translate(Vector3.down * 1.1f, Space.Self);
+                base.transform.Translate(Vector3.forward * 1.3f, Space.Self);
+            }
+        }
     }
 }

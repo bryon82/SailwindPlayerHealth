@@ -5,14 +5,14 @@ namespace PlayerHealth
 {
     internal class AssetsLoader
     {
-        public static Texture2D redCrossTexture;
-        public static Material redCrossMaterial;
+        public static Texture2D healthIconTexture;
+        public static Material healthIconMaterial;
 
         public static void LoadAssets()
         {
             var assetsPath = Path.Combine(Path.GetDirectoryName(Plugin.instance.Info.Location), "Assets");
-            redCrossTexture = LoadTexture(Path.Combine(assetsPath, "RedCross.png"));
-            redCrossMaterial = CreateMaterial(redCrossTexture);
+            healthIconTexture = LoadTexture(Path.Combine(assetsPath, "Heart.png"));
+            healthIconMaterial = CreateMaterial(healthIconTexture);
             Plugin.logger.LogInfo("Health icon loaded.");
         }
 
